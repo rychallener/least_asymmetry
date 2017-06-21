@@ -195,6 +195,10 @@ def actr(data, yxguess, asym_rad=8, asym_size=5, maxcounts=2, method='gaus',
     x_guess = int(yxguess[1])
     y_guess = int(yxguess[0])
 
+    # make sure asym_size and asym_rad are ints
+    asym_size = int(asym_size)
+    asym_rad  = int(asym_rad)
+    
     # create the array indexes
     ny, nx = np.indices((data.shape))
 
@@ -246,7 +250,7 @@ def actr(data, yxguess, asym_rad=8, asym_size=5, maxcounts=2, method='gaus',
 
         # now create the actual asym array
         try:
-            asym = np.array(list(map(make_asym, views, lb_views, w_truth_dup)))
+          asym = np.array(list(map(make_asym, views, lb_views, w_truth_dup)))
         except RuntimeError as e:
             raise RuntimeError("Error in computing asym transformation, "
                                "check input image for defects")
