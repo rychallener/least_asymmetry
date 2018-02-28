@@ -16,6 +16,7 @@ then
 fi
 
 if [ "$1" == "3" ]
+then
    py=3
 fi
 
