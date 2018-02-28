@@ -6,15 +6,20 @@
 
 #this will remove any partial builds, if there was a failure
 
+#to build in python 3, use "build.sh 3
+
 
 if [ "$1" == "clean" ]
 then
-    rm *.so
+    rm least_asymmetry/*.so
     exit
 fi
 
+if [ "$1" == "3" ]
+   py=3
+fi
 
-python setup.py build_ext --inplace 
+"python$py" setup.py build_ext --inplace 
 #rm -r build/
-python unit_test.py
+"python$py" unit_test.py
 echo "~~You made it!~~"
