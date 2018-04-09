@@ -6,7 +6,7 @@
 
 #this will remove any partial builds, if there was a failure
 
-#to build in python 3, use "build.sh 3
+#to build in python 3, use "build.sh 3"
 
 
 if [ "$1" == "clean" ]
@@ -15,12 +15,7 @@ then
     exit
 fi
 
-if [ "$1" == "3" ]
-then
-   py=3
-fi
-
-"python$py" setup.py build_ext --inplace 
+"python$1" setup.py build_ext --inplace 
 #rm -r build/
-"python$py" unit_test.py
+"python$1" unit_test.py
 echo "~~You made it!~~"
